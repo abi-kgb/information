@@ -1,0 +1,436 @@
+/* =========================
+   PAGE BASE
+========================= */
+.menu-page {
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+/* =========================
+   MENU GRID
+========================= */
+.menu-wrapper {
+    width: 100%;
+    margin-top: 2px;
+}
+
+.menu-container {
+    width: 85%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: 120px;
+    gap: 20px;
+}
+
+.menu-btn {
+    height: 120px;
+    border-radius: 18px;
+    border: none;
+    font-size: 38px;
+    font-weight: bold;
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.85);
+    color: #0056b3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+}
+
+.menu-btn:hover {
+    transform: scale(1.06);
+    background: #0056b3;
+    color: white;
+}
+
+.about {
+    grid-column: 2 / span 2;
+    grid-row: 2 / span 2;
+    height: 260px;
+}
+
+/* =========================
+   HOME BUTTON
+========================= */
+.back-btn {
+    position: fixed;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    padding: 14px 36px;
+    background: #0056b3;
+    color: white;
+    text-decoration: none;
+    border-radius: 999px;
+
+    font-weight: bold;
+    font-size: 16px;
+
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+    transition: all 0.3s ease;
+    z-index: 3000;
+}
+
+.back-btn:hover {
+    background: #003f82;
+    transform: translateX(-50%) scale(1.08);
+}
+/* =========================
+   ENQUIRY OVERLAY (CENTER FIX)
+========================= */
+.enquiry-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+    height:800px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(6px);
+}
+
+/* =========================
+   ENQUIRY FORM
+========================= */
+.enquiry-form {
+    text-align: center;
+    width: 650px;
+    max-width: 90%;
+    background: white;
+    padding: 8px;
+    border-radius: 22px;
+    position: relative;
+    border: 1px solid transparent;
+    background-image:
+        linear-gradient(white, white),
+        linear-gradient(135deg, #1e3a8a, #3b82f6);
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+    height: 60%;
+    box-shadow:
+        0 0 30px rgba(59, 130, 246, 0.6),
+        0 25px 50px rgba(10, 10, 10, 0.35);
+
+    animation: enquiryIn 0.45s ease-out;
+}
+
+.enquiry-form input,
+.enquiry-form textarea {
+    width: 85%;
+    padding: 12px;
+    margin-bottom: 14px;
+    border-radius: 12px;
+    border: 1px solid #cbd5e1;
+    font-size: 14px;
+}
+
+.form-title {
+    text-align: center;
+    font-size: 70px;
+    font-weight: 700;
+    margin-bottom: 18px;
+    color: #1e3a8a;
+}
+
+.submit-btn {
+    width: 80%;
+    padding: 12px;
+    border-radius: 14px;
+    border: none;
+   
+    background: #1e3a8a;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.submit-btn:hover {
+    background: #2563eb;
+    transform: scale(1.05);
+}
+
+.close-btn {
+    position: absolute;
+    right: 14px;
+    top: 10px;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+/* =========================
+   FORM ANIMATION
+========================= */
+@keyframes enquiryIn {
+    from {
+        opacity: 0;
+        transform: translateY(40px) scale(0.9);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+/* =========================
+   MENU PANEL BACKGROUND
+========================= */
+.menu-wrapper {
+    position: relative;
+    padding: 60px 0;
+}
+
+
+/* =========================
+   BACKGROUND IMAGE (FIXED)
+========================= */
+.menu-bg {
+    position: fixed;
+    inset: 0;
+    z-index: -3;
+
+    background-image: url("/images/college.jpeg");
+    /* your image */
+    background-size: cover;
+    background-position: center;
+}
+
+/* =========================
+   BLUR + DARK OVERLAY
+========================= */
+.menu-blur {
+    position: fixed;
+    inset: 0;
+    z-index: -2;
+
+    transition: all 0.5s ease;
+}
+
+/* When enquiry is open */
+.blur-active {
+    backdrop-filter: blur(8px);
+    background: rgba(0, 0, 0, 0.55);
+}
+
+/* After enquiry closes */
+.blur-inactive {
+    backdrop-filter: blur(2px);
+    background: rgba(0, 0, 0, 0.25);
+}
+/* =========================
+   MENU BREAK & JOIN ANIMATION
+========================= */
+
+.menu-btn {
+    animation: breakJoin 1.8s ease-in-out forwards;
+}
+
+/* Slight randomness using nth-child */
+.menu-btn:nth-child(1) {
+    animation-delay: 0.05s;
+}
+
+.menu-btn:nth-child(2) {
+    animation-delay: 0.1s;
+}
+
+.menu-btn:nth-child(3) {
+    animation-delay: 0.15s;
+}
+
+.menu-btn:nth-child(4) {
+    animation-delay: 0.2s;
+}
+
+.menu-btn:nth-child(5) {
+    animation-delay: 0.25s;
+}
+
+.menu-btn:nth-child(6) {
+    animation-delay: 0.3s;
+}
+
+.menu-btn:nth-child(7) {
+    animation-delay: 0.35s;
+}
+
+.menu-btn:nth-child(8) {
+    animation-delay: 0.4s;
+}
+
+.menu-btn:nth-child(9) {
+    animation-delay: 0.45s;
+}
+
+.menu-btn:nth-child(10) {
+    animation-delay: 0.5s;
+}
+
+.menu-btn:nth-child(11) {
+    animation-delay: 0.55s;
+}
+
+.menu-btn:nth-child(12) {
+    animation-delay: 0.6s;
+}
+
+.menu-btn:nth-child(13) {
+    animation-delay: 0.65s;
+}
+
+/* MAIN KEYFRAMES */
+@keyframes breakJoin {
+
+    /* Initial position */
+    0% {
+        transform: translateY(0) rotate(0);
+        opacity: 1;
+    }
+
+    /* FALL DOWN */
+    25% {
+        transform: translateY(120px) rotate(8deg);
+        opacity: 0.9;
+    }
+
+    /* BREAK / SCATTER */
+    45% {
+        transform:
+            translate(calc(-40px + 80px * random()),
+                180px) rotate(-12deg) scale(0.95);
+        opacity: 0.85;
+    }
+
+    /* RETURN */
+    70% {
+        transform: translateY(-20px) rotate(4deg);
+        opacity: 1;
+    }
+
+    /* FINAL RESTING POSITION */
+    100% {
+        transform: translateY(0) rotate(0);
+    }
+}
+.menu-btn:nth-child(even) {
+    transform-origin: left;
+}
+
+.menu-btn:nth-child(odd) {
+    transform-origin: right;
+}
+/* ===============================
+   M.E MENU – LEFT / RIGHT LAYOUT
+   =============================== */
+
+.me-menu .me-menu-layout {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    height: 100vh;
+    align-items: center;
+    padding: 0 80px;
+}
+
+/* LEFT PANEL */
+.me-menu .me-left {
+    color: #ffffff;
+}
+
+.me-menu .me-title {
+    font-size: 42px;
+    font-weight: 800;
+    margin-bottom: 12px;
+    text-shadow: 0 0 20px rgba(168, 85, 247, 0.8);
+}
+
+.me-menu .me-sub {
+    font-size: 16px;
+    opacity: 0.85;
+}
+
+/* RIGHT PANEL */
+.me-menu .me-right {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+/* BIG BUTTONS */
+.me-menu .me-btn {
+    width: 100%;
+    height: 68px;
+    font-size: 28px;
+    letter-spacing: 0.6px;
+    border-radius: 14px;
+    color: turquoise;
+    background: linear-gradient(135deg, #7c3aedf1, #a955f7);
+    box-shadow: 0 0 30px rgba(168, 85, 247, 0.5);
+
+    animation: meSlideIn 0.6s ease forwards;
+    opacity: 0;
+}
+
+/* ENTRY ANIMATION */
+@keyframes meSlideIn {
+    from {
+        transform: translateX(40px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* HOVER */
+.me-menu .me-btn:hover {
+    color: white;
+    transform: scale(1.05);
+    box-shadow: 0 0 40px rgba(168, 85, 247, 0.9);
+}
+/* ===============================
+   M.E MENU – UNDO / REDO ONLY
+   =============================== */
+
+.me-menu .me-nav-controls {
+    position: fixed;
+    bottom: 110px;
+    /* above home/menu button */
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 16px;
+    z-index: 999999;
+}
+
+.me-menu .me-nav-btn {
+    width: 56px;
+    height: 56px;
+    border: none;
+    border-radius: 14px;
+    background: rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(10px);
+    cursor: pointer;
+
+    box-shadow: 0 0 18px rgba(168, 85, 247, 0.7);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.me-menu .me-nav-btn img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.me-menu .me-nav-btn:hover {
+    transform: scale(1.12);
+    box-shadow: 0 0 30px rgb(85, 174, 247);
+}

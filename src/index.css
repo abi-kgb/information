@@ -1,0 +1,405 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+  }
+
+  to {
+    transform: translateY(0);
+  }
+}
+html,
+body {
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+  /* 🚫 disable scrolling */
+}
+.animate-slideUp {
+  animation: slideUp 0.4s ease-out;
+}
+@keyframes float {
+  0% {
+    transform: translateY(0);
+    opacity: 0.3;
+  }
+
+  50% {
+    opacity: 0.8;
+  }
+
+  100% {
+    transform: translateY(-40px);
+    opacity: 0;
+  }
+}
+
+.animate-float {
+  animation: float 6s infinite ease-in-out;
+}
+@keyframes float {
+  0% {
+    transform: translateY(0);
+    opacity: 0.4;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(-80px);
+    opacity: 0;
+  }
+}
+
+.animate-float {
+  animation: float 6s infinite ease-in-out;
+}
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+  }
+
+  to {
+    transform: translateY(0);
+  }
+}
+
+.animate-slideUp {
+  animation: slideUp 0.4s ease-out;
+}
+@keyframes floatBtn {
+  0% {
+    transform: translate(-50%, 0);
+  }
+
+  50% {
+    transform: translate(-50%, -10px);
+  }
+
+  100% {
+    transform: translate(-50%, 0);
+  }
+}
+
+@keyframes ripple {
+  from {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.8;
+  }
+
+  to {
+    transform: translate(-50%, -50%) scale(18);
+    opacity: 0;
+  }
+}@keyframes scaleIn {
+  from {
+    transform: scale(0.85);
+    opacity: 0;
+  }
+
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.animate-scaleIn {
+  animation: scaleIn 0.3s ease-out;
+}
+/* =========================
+   PAGE TRANSITIONS
+========================= */
+
+.page-enter {
+  opacity: 0;
+  transform: translateY(40px) scale(0.96);
+}
+
+.page-enter-active {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  transition: all 0.6s ease;
+}
+
+.page-exit {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.page-exit-active {
+  opacity: 0;
+  transform: translateY(-40px) scale(0.96);
+  transition: all 0.5s ease;
+}
+/* =========================
+   MCA PAGE HEADER
+========================= */
+
+.mca-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+
+  background: linear-gradient(135deg, #0f172a, #1e3a8a);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+}
+
+.mca-header-inner {
+  max-width: 1200px;
+  margin: auto;
+  padding: 16px 24px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.mca-title {
+  color: white;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+/* =========================
+   NAVIGATION
+========================= */
+
+.mca-nav a {
+  color: #e5e7eb;
+  margin-left: 24px;
+  text-decoration: none;
+  font-weight: 500;
+  position: relative;
+}
+
+.mca-nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0;
+  height: 2px;
+  background: #60a5fa;
+  transition: width 0.3s ease;
+}
+
+.mca-nav a:hover::after {
+  width: 100%;
+}
+
+/* =========================
+   CONTENT
+========================= */
+
+.mca-content {
+  max-width: 1000px;
+  margin: auto;
+  padding: 60px 24px;
+  color: #e5e7eb;
+  background: linear-gradient(to bottom, #020617, #020617);
+}
+
+.mca-content section {
+  margin-bottom: 80px;
+}
+
+.mca-content h2 {
+  font-size: 26px;
+  margin-bottom: 12px;
+  color: #93c5fd;
+}
+
+.mca-content p {
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+/* =========================
+   BACK BUTTON
+========================= */
+
+.mca-back {
+  text-align: center;
+  margin-top: 60px;
+}
+
+.mca-back button {
+  padding: 14px 36px;
+  border-radius: 999px;
+  border: none;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+
+  background: #2563eb;
+  color: white;
+  transition: transform 0.3s ease;
+}
+
+.mca-back button:hover {
+  transform: scale(1.08);
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 768px) {
+  .mca-header-inner {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .mca-nav a {
+    margin-left: 14px;
+  }
+}
+
+/* =========================
+   MCA LAYOUT
+========================= */
+.mca-layout {
+  min-height: 100vh;
+  display: flex;
+  background: #020617;
+  color: white;
+}
+
+/* =========================
+   SIDEBAR
+========================= */
+.mca-sidebar {
+  position: relative;
+  width: 240px;
+  background: linear-gradient(180deg, #0f172a, #1e3a8a);
+  transition: width 0.4s ease;
+  overflow: hidden;
+}
+
+.mca-sidebar.closed {
+  width: 60px;
+}
+
+/* TOGGLE BUTTON */
+.toggle-btn {
+  position: absolute;
+  top: 20px;
+  right: -18px;
+
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+
+  background: #2563eb;
+  color: white;
+  border: none;
+  cursor: pointer;
+
+  box-shadow: 0 0 15px rgba(59, 130, 246, 0.8);
+}
+
+/* MENU */
+.mca-menu {
+  margin-top: 80px;
+  display: flex;
+  flex-direction: column;
+}
+
+.mca-menu button {
+  background: transparent;
+  border: none;
+  color: #e5e7eb;
+  padding: 16px 20px;
+  text-align: left;
+  font-size: 16px;
+  cursor: pointer;
+  position: relative;
+  transition: background 0.3s ease;
+}
+
+.mca-menu button:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* ACTIVE LINE EFFECT */
+.mca-menu button::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 4px;
+  background: #60a5fa;
+  transform: scaleY(0);
+  transition: transform 0.3s ease;
+}
+
+.mca-menu button:hover::before {
+  transform: scaleY(1);
+}
+
+/* =========================
+   CONTENT
+========================= */
+.mca-main {
+  flex: 1;
+  padding: 80px;
+  animation: fadeIn 0.5s ease;
+}
+
+.content-box {
+  max-width: 700px;
+  animation: slideUp 0.5s ease;
+}
+
+.content-box h2 {
+  font-size: 28px;
+  margin-bottom: 12px;
+  color: #93c5fd;
+}
+
+.content-box p {
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+/* BACK BUTTON */
+.back-menu {
+  margin-top: 60px;
+  padding: 12px 30px;
+  border-radius: 999px;
+  border: none;
+  background: #2563eb;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* =========================
+   ANIMATIONS
+========================= */
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
