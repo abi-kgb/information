@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import "../components/Menu.css";
 import "./Scholarships.css";
 
 export default function Scholarships() {
@@ -33,24 +34,24 @@ export default function Scholarships() {
         <p style={{ color: "white", marginTop: "10px" }}>
           Financial Assistance & Government Scholarship Schemes
         </p>
-     
 
-      {/* NAV BAR */}
-      <nav className="sch-navbar">
-        {["overview", "eligibility", "documents", "process", "details"].map(
-          (item, i) => (
-            <button
-              key={item}
-              className={`nav-btn ${active === item ? "active train" : ""}`}
-              style={{ animationDelay: `${i * 0.15}s` }}
-              onClick={() => changeTab(item)}
-            >
-              {item.toUpperCase()}
-            </button>
-          )
-        )}
-      </nav>
- </header>
+
+        {/* NAV BAR */}
+        <nav className="sch-navbar">
+          {["overview", "eligibility", "documents", "process", "details"].map(
+            (item, i) => (
+              <button
+                key={item}
+                className={`nav-btn ${active === item ? "active train" : ""}`}
+                style={{ animationDelay: `${i * 0.15}s` }}
+                onClick={() => changeTab(item)}
+              >
+                {item.toUpperCase()}
+              </button>
+            )
+          )}
+        </nav>
+      </header>
       {/* CONTENT */}
       <div className="sch-content" key={keyTrigger}>
         {/* OVERVIEW */}
@@ -173,13 +174,11 @@ export default function Scholarships() {
         )}
       </div>
 
-      {/* FLOATING MENU BUTTON */}
-      <button
-        onClick={() => navigate("/menu")}
-        className="floating-menu-btn"
-      >
-        <img src="/images/menu.gif" alt="Menu" />
-      </button>
+      <div className="me-nav-controls">
+        <button className="me-nav-btn menu-nav-btn" onClick={() => navigate("/menu")}>
+          <img src="/images/menu.gif" alt="Menu" />
+        </button>
+      </div>
     </div>
   );
 }

@@ -1,7 +1,6 @@
-import MenuButton from "../MenuButton";
 import { useNavigate } from "react-router-dom";
-
 import { useEffect, useState } from "react";
+import "../components/Menu.css";
 import "./Hostel.css";
 
 import hostel1 from "/images/hostel/h1.jpg";
@@ -14,7 +13,7 @@ const images = [hostel1, hostel2, hostel3, hostel4];
 
 export default function Hostel() {
   const [current, setCurrent] = useState(0);
- const navigate = useNavigate();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -79,8 +78,11 @@ export default function Hostel() {
         </div>
 
       </div>
-      <MenuButton  onMenu={() => navigate("/menu")} />
-
+      <div className="me-nav-controls">
+        <button className="me-nav-btn menu-nav-btn" onClick={() => navigate("/menu")}>
+          <img src="/images/menu.gif" alt="Menu" />
+        </button>
+      </div>
     </div>
   );
 }

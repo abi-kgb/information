@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import "../components/Menu.css";
 import "./About.css";
 
 // Images
@@ -67,9 +68,8 @@ export default function About() {
     >
       {/* SECTION BUTTONS */}
       <div
-        className={`section-buttons ${
-          activeSection ? "top-row" : "center-grid"
-        }`}
+        className={`section-buttons ${activeSection ? "top-row" : "center-grid"
+          }`}
       >
         {sections.map((item, index) => (
           <button
@@ -161,27 +161,9 @@ export default function About() {
         </div>
       )}
 
-      {/* ACTION BAR */}
-      <div className="action-bar">
-
-        {/* BACK TO MAIN MENU */}
-        <button
-          onClick={() => navigate("/menu")}
-          className="back-btn"
-          style={{
-            width: "72px",
-            height: "72px",
-            borderRadius: "18px",
-            border: "none",
-            cursor: "pointer",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            boxShadow: "0 0 25px rgba(37,99,235,0.9)",
-            animation: "floatBtn 2.8s ease-in-out infinite",
-          }}
-        >
-          <img src="/images/home.gif" alt="Menu" width="64" height="64" />
+      <div className="me-nav-controls">
+        <button className="me-nav-btn menu-nav-btn" onClick={() => navigate("/menu")}>
+          <img src="/images/menu.gif" alt="Menu" />
         </button>
       </div>
     </div>

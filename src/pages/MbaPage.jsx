@@ -1,40 +1,42 @@
 import DepartmentLayout from "../components/DepartmentLayout.jsx";
-import ImageSlider from "../components/ImageSlider.jsx"; 
+import ImageSlider from "../components/ImageSlider.jsx";
 export default function MbaPage() {
   return (
     <DepartmentLayout
       title="Department of MBA"
       theme="theme-mba"
+      singleMenu={true}
       sections={{
         About: {
           title: "About MBA",
           content:
-"The Department of Management Studies was incepted in the year 1992 with the state of the art infrastructure as per the norms and beyond. Ours is the first MBA Program affiliated to the University of Madras after the Department of Management Studies of the University.The department offers two Post Graduate Programs namely two year MBA (Full time) and a three year MBA (Part time) under Permanent Affiliation to Anna University, Chennai."        },
+            "The Department of Management Studies was incepted in the year 1992 with the state of the art infrastructure as per the norms and beyond. Ours is the first MBA Program affiliated to the University of Madras after the Department of Management Studies of the University.The department offers two Post Graduate Programs namely two year MBA (Full time) and a three year MBA (Part time) under Permanent Affiliation to Anna University, Chennai."
+        },
 
-              Infrastructure: {
-        title: "Infrastructure",
-        custom: (
-          <div className="infra-grid">
-            {/* LEFT – IMAGE SLIDER */}
-            <div className="infra-left">
-              <ImageSlider
-                images={[
-                  "/images/mba/infrastructure/1.jpg",
-                  "/images/mba/infrastructure/2.jpg",
-                  "/images/mba/infrastructure/3.jpg"
-                ]}
-              />
+        Infrastructure: {
+          title: "Infrastructure",
+          custom: (
+            <div className="infra-grid">
+              {/* LEFT – IMAGE SLIDER */}
+              <div className="infra-left">
+                <ImageSlider
+                  images={[
+                    "/images/mba/infrastructure/1.jpg",
+                    "/images/mba/infrastructure/2.jpg",
+                    "/images/mba/infrastructure/3.jpg"
+                  ]}
+                />
+              </div>
+
+              {/* RIGHT – CONTENT */}
+              <div className="infra-right">
+                <p>
+                  Our campus is equipped with modern infrastructure designed to support academic excellence, innovation, and student comfort. The facilities are continuously upgraded to meet current educational and technological standards.
+                </p>
+              </div>
             </div>
-      
-            {/* RIGHT – CONTENT */}
-            <div className="infra-right">
-              <p>
-               Our campus is equipped with modern infrastructure designed to support academic excellence, innovation, and student comfort. The facilities are continuously upgraded to meet current educational and technological standards.
-              </p>
-            </div>
-          </div>
-        ),
-      },
+          ),
+        },
 
         "Career Opportunities": {
           title: "Career Opportunities",

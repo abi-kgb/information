@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import MenuButton from "../MenuButton.jsx"; // ✅ ADD
 import "./DepartmentLayout.css";
+import "./Menu.css";
 
-export default function DepartmentLayout({ title, theme, sections }) {
+export default function DepartmentLayout({ title, theme, sections, singleMenu }) {
   const navigate = useNavigate();
   const sectionKeys = Object.keys(sections);
   const [active, setActive] = useState(sectionKeys[0]);
@@ -47,8 +47,24 @@ export default function DepartmentLayout({ title, theme, sections }) {
         </div>
       </div>
 
-      {/* 🔵 FLOATING MENU BUTTON (BOTTOM CENTER) */}
-      <MenuButton onMenu={() => navigate("/menu")} />
+      {/* 🔵 NAVIGATION BAR (BOTTOM CENTER) */}
+      <div className="me-nav-controls">
+        {singleMenu === true ? (
+          <button className="me-nav-btn menu-nav-btn" onClick={() => navigate("/menu")}>
+            <img src="/images/menu.gif" alt="Menu" />
+          </button>
+        ) : (
+          <>
+            <button className="me-nav-btn" onClick={() => window.history.back()}>
+              <img src="/images/back.gif" alt="Back" />
+            </button>
+
+            <button className="me-nav-btn" onClick={() => window.history.forward()}>
+              <img src="/images/ford.gif" alt="Forward" />
+            </button>
+          </>
+        )}
+      </div>
     </div>
   );
 }

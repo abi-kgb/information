@@ -1,4 +1,6 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
+import "../components/Menu.css";
 import "./placement.css";
 import PlacementLineChart from "../components/PlacementLineChart";
 import PlacementSlider from "../components/PlacementSlider";
@@ -19,6 +21,7 @@ const row2Logos = [
 ];
 
 export default function Placement() {
+  const navigate = useNavigate();
   return (
     <div className="department-page placement-page">
 
@@ -33,7 +36,7 @@ export default function Placement() {
 
         <div className="top-box">
           <div className="mosaic-wrapper">
-           <PlacementSlider/>
+            <PlacementSlider />
           </div>
         </div>
       </div>
@@ -65,6 +68,11 @@ export default function Placement() {
 
       </div>
 
+      <div className="me-nav-controls">
+        <button className="me-nav-btn menu-nav-btn" onClick={() => navigate("/menu")}>
+          <img src="/images/menu.gif" alt="Menu" />
+        </button>
+      </div>
     </div>
   );
 }

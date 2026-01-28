@@ -1,0 +1,202 @@
+/* ===============================
+   B.TECH PAGE
+   =============================== */
+
+.btech-page {
+    min-height: 100vh;
+
+    background-image:
+        url("../images/btech/btechbg.jpeg");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    padding: 50px 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+/* ===============================
+   TITLE
+   =============================== */
+
+.btech-title {
+    font-size: 60px;
+    font-weight: 700;
+    margin-bottom: 45px;
+    color: #ffffff;
+    font-family: serif;
+    animation: fadeDown 0.8s ease;
+}
+
+@keyframes fadeDown {
+    from {
+        opacity: 0;
+        transform: translateY(-18px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===============================
+   BUTTON GRID LAYOUT
+   =============================== */
+
+.btech-buttons {
+    width: 100%;
+    max-width: 1000px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 34px;
+}
+
+/* CENTER LAST BUTTON */
+.center-btn {
+    grid-column: 1 / -1;
+    /* take full row */
+    justify-self: center;
+    /* center within row */
+    width: 50%;
+    max-width: 500px;
+}
+
+/* ===============================
+   BUTTON STYLE
+   =============================== */
+
+.btech-btn {
+    height: 120px;
+    width: 100%;
+    border-radius: 20px;
+    background: linear-gradient(135deg, #2563eb, #7db6f4);
+    color: #ffffff;
+
+    font-size: 26px;
+    font-weight: 600;
+    text-align: center;
+    padding: 18px 24px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-decoration: none;
+    font-family: "Times New Roman", serif;
+
+    box-shadow: 0 18px 38px rgba(0, 0, 0, 0.18);
+
+    transform: translateY(40px) scale(0.95);
+    animation: flyIn 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+
+    transition: transform 0.35s ease, box-shadow 0.35s ease, color 0.35s ease;
+}
+
+
+
+
+/* ===============================
+   STAGGERED ENTRY
+   =============================== */
+
+.btech-btn:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.btech-btn:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.btech-btn:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.btech-btn:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+.btech-btn:nth-child(5) {
+    animation-delay: 0.5s;
+}
+
+/* ===============================
+   FLY-IN ANIMATION
+   =============================== */
+
+@keyframes flyIn {
+    0% {
+        transform: translateY(40px) scale(0.95);
+    }
+
+    70% {
+        transform: translateY(-6px) scale(1.03);
+    }
+
+    100% {
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* ===============================
+   HOVER + ACTIVE
+   =============================== */
+
+.btech-btn:hover {
+    transform: translateY(-6px) scale(1.04);
+    box-shadow: 0 24px 50px rgba(0, 0, 0, 0.28);
+}
+
+.btech-btn:active {
+    transform: translateY(-2px) scale(0.98);
+}
+
+/* SUBTLE GLOW */
+.btech-btn::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 20px;
+    background: radial-gradient(circle at center,
+            rgba(255, 255, 255, 0.25),
+            transparent 60%);
+    opacity: 0;
+    transform: scale(0.6);
+    transition: all 0.5s ease;
+}
+
+.btech-btn:hover::after {
+    opacity: 1;
+    transform: scale(1.4);
+}
+
+/* ===============================
+   RESPONSIVE
+   =============================== */
+
+@media (max-width: 768px) {
+    .btech-buttons {
+        grid-template-columns: 1fr;
+    }
+
+    .center-btn {
+        grid-column: span 1;
+        width: 100%;
+    }
+
+    .btech-btn {
+        height: 100px;
+        font-size: 22px;
+    }
+}
+
+@media (max-width: 768px) {
+    .center-btn {
+        grid-column: span 1;
+        width: 100%;
+    }
+}

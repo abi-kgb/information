@@ -6,12 +6,21 @@ import "./Menu.css";
 
 export default function MenuPage() {
   const navigate = useNavigate();
+  const location = useLocation();
 
   const [showMenu, setShowMenu] = useState(false);
-  const [showEnquiry, setShowEnquiry] = useState(true);
+  const [showEnquiry, setShowEnquiry] = useState(false);
 
-  /* ✅ ONLY REQUIRED MENU ITEMS */
-  const menuItems = [
+  /* ✅ CONDITIONALLY SHOW ENQUIRY ON MOUNT */
+  useEffect(() => {
+    if (location.state?.fromHome) {
+      setShowEnquiry(true);
+    } else {
+      setShowMenu(true);
+    }
+  }, [location.state]);
+
+  const [menuItems] = useState([
     { text: "B.E", path: "/be" },
     { text: "B.Tech", path: "/btech" },
     { text: "B.Arch", path: "/barch" },
@@ -26,24 +35,23 @@ export default function MenuPage() {
     { text: "Hostel", path: "/hostel" },
     { text: "Transport", path: "/transport" },
     { text: "Scholarship", path: "/scholarship" },
-  ];
+  ]);
 
   /* SHOW MENU AFTER ENQUIRY CLOSE */
   useEffect(() => {
-    if (!showEnquiry) {
+    if (!showEnquiry && location.state?.fromHome) {
       setShowMenu(false);
       setTimeout(() => setShowMenu(true), 300);
     }
-  }, [showEnquiry]);
+  }, [showEnquiry, location.state]);
 
   return (
     <div className="menu-page">
       {/* BACKGROUND */}
       <div className="menu-bg" />
       <div
-        className={`menu-blur ${
-          showEnquiry ? "blur-active" : "blur-inactive"
-        }`}
+        className={`menu-blur ${showEnquiry ? "blur-active" : "blur-inactive"
+          }`}
       />
 
       {/* ENQUIRY FORM */}
@@ -54,7 +62,7 @@ export default function MenuPage() {
               ×
             </span>
 
-            <h2 className="form-title">Enquiry Form</h2>
+            <h2 className="form-title">Enter Your Details</h2>
 
             <input id="name" placeholder="Student Name" />
             <input id="phone" placeholder="Mobile Number" />
@@ -74,7 +82,7 @@ Course: ${document.getElementById("course").value}
 
                 window.open(
                   "https://wa.me/919876543210?text=" +
-                    encodeURIComponent(message),
+                  encodeURIComponent(message),
                   "_blank"
                 );
 
@@ -118,33 +126,6 @@ Course: ${document.getElementById("course").value}
             ))}
           </div>
         </div>
-      )}
-
-      {/* HOME BUTTON */}
-      {!showEnquiry && (
-        <button
-          onClick={() => navigate("/")}
-          className="back-btn"
-          style={{
-            position: "fixed",
-            bottom: "24px",
-            left: "50%",
-            transform: "translateX(-50%)",
-            zIndex: 999999,
-            width: "72px",
-            height: "72px",
-            borderRadius: "18px",
-            border: "none",
-            cursor: "pointer",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            boxShadow: "0 0 25px rgba(37,99,235,0.9)",
-            animation: "floatBtn 2.8s ease-in-out infinite",
-          }}
-        >
-          <img src="/images/home.gif" alt="Home" width="64" height="64" />
-        </button>
       )}
     </div>
   );

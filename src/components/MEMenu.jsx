@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
-
-import "./Menu.css"; // reuse SAME menu CSS
+import MenuButton from "../MenuButton.jsx";
+import "./Menu.css";
 
 export default function MEMenu() {
   const navigate = useNavigate();
@@ -57,47 +57,8 @@ export default function MEMenu() {
         </div>
       </div>
 
-      {/* UNDO / REDO – ONLY FOR ME MENU */}
-      <div className="me-nav-controls">
-        <button
-          className="me-nav-btn"
-          onClick={() => window.history.back()}
-        >
-          <img src="/images/back.gif" alt="Undo" />
-        </button>
-
-        <button
-          className="me-nav-btn"
-          onClick={() => window.history.forward()}
-        >
-          <img src="/images/ford.gif" alt="Redo" />
-        </button>
-      </div>
-
-      {/* BACK TO MAIN MENU */}
-      <button
-        onClick={() => navigate("/menu")}
-        className="back-btn"
-        style={{
-          position: "fixed",
-          bottom: "24px",
-          left: "50%",
-          transform: "translateX(-50%)",
-          zIndex: 999999,
-          width: "72px",
-          height: "72px",
-          borderRadius: "18px",
-          border: "none",
-          cursor: "pointer",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          boxShadow: "0 0 25px rgba(37,99,235,0.9)",
-          animation: "floatBtn 2.8s ease-in-out infinite",
-        }}
-      >
-        <img src="/images/home.gif" alt="Menu" width="64" height="64" />
-      </button>
+      {/* FLOATING MENU BUTTON */}
+      <MenuButton onMenu={() => navigate("/menu")} />
     </div>
   );
 }

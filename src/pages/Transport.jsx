@@ -1,18 +1,21 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import "../components/Menu.css";
 import "./Transport.css";
 
 const routes = [
-  "AYYUR","BARGUR","HALESEEBAM","TIRUPATHUR","KAGADASAM",
-  "ANCHETTY","LOCAL STAFF BUS","POONAPALLI","KAKNOOR",
-  "RAYAKOTTAI","JAWALAGIRI","MUDAMPATTI","MATHUR",
-  "KELAMANGALAM & GOWTHALAM","SEEKANAPALLI","BERIGAI",
-  "ALSANATHAM","KRISHNAGIRI","MATHIGIRI","BASTHI",
-  "ATHIPALLI","ASHOK LEYLAND","KARIYAMANGALAM"
+  "AYYUR", "BARGUR", "HALESEEBAM", "TIRUPATHUR", "KAGADASAM",
+  "ANCHETTY", "LOCAL STAFF BUS", "POONAPALLI", "KAKNOOR",
+  "RAYAKOTTAI", "JAWALAGIRI", "MUDAMPATTI", "MATHUR",
+  "KELAMANGALAM & GOWTHALAM", "SEEKANAPALLI", "BERIGAI",
+  "ALSANATHAM", "KRISHNAGIRI", "MATHIGIRI", "BASTHI",
+  "ATHIPALLI", "ASHOK LEYLAND", "KARIYAMANGALAM"
 ];
 
 const images = ["/images/t1.jpeg", "/images/t2.jpeg"];
 
 export default function Transport() {
+  const navigate = useNavigate();
   const [index, setIndex] = useState(0);
 
   const next = () => setIndex((index + 1) % images.length);
@@ -70,13 +73,13 @@ export default function Transport() {
 
         </div>
 
-        {/* CONTACT */}
-        <div className="contact glass-dark">
-          <p>Transport Incharge</p>
-          <h3>Mr. Govindaraj</h3>
-          <p>📞 9442855079</p>
-        </div>
 
+
+      </div>
+      <div className="me-nav-controls">
+        <button className="me-nav-btn menu-nav-btn" onClick={() => navigate("/menu")}>
+          <img src="/images/menu.gif" alt="Menu" />
+        </button>
       </div>
     </div>
   );
