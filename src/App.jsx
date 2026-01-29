@@ -34,6 +34,14 @@ import ECE from "./pages/be/ECE.jsx";
 import EEE from "./pages/be/EEE.jsx";
 import Mechanical from "./pages/be/Mechanical.jsx";
 
+// PhD COURSES
+import PhdCourses from "./components/PhdCourses.jsx";
+import PhdMechanical from "./pages/phd/Mechanical.jsx";
+import PhdEce from "./pages/phd/Ece.jsx";
+import PhdChemistry from "./pages/phd/InteractiveCardsChemistry.jsx";
+import PhdPysics from "./pages/phd/Physics.jsx";
+import PhdCSE from "./pages/phd/ComputerScience.jsx";
+
 export default function App() {
   return (
     <Routes>
@@ -78,6 +86,14 @@ export default function App() {
       <Route path="/be/ece" element={<ECE />} />
       <Route path="/be/eee" element={<EEE />} />
       <Route path="/be/mechanical" element={<Mechanical />} />
+
+      {/* PhD ROUTES */}
+      <Route path="/phd" element={<PhdCourses />} />
+      <Route path="/phd/mechanical" element={<PhdMechanical />} />
+      <Route path="/phd/ece" element={<PhdEce />} />
+      <Route path="/phd/chemistry" element={<PhdChemistry />} />
+      <Route path="/phd/physics" element={<PhdPysics />} />
+      <Route path="/phd/cse" element={<PhdCSE />} />
 
     </Routes>
   );

@@ -9,6 +9,14 @@ export default function Biomedical() {
 
     return (
         <div className="dept-page bg-bio">
+            {/* 🎥 VIDEO BACKGROUND */}
+            <video autoPlay loop muted playsInline className="video-bg">
+                <source src="/media/bio.mp4" type="video/mp4" />
+            </video>
+
+            {/* 🌑 DARK OVERLAY */}
+            <div className="video-overlay"></div>
+
             <h1 className="dept-title">🧬 Biomedical Engineering</h1>
 
             <div className="dept-tabs">
@@ -32,8 +40,11 @@ export default function Biomedical() {
 
             {/* 🔵 NAVIGATION BAR */}
             <div className="me-nav-controls">
-                <button className="me-nav-btn menu-nav-btn" onClick={() => navigate("/menu")}>
-                    <img src="/images/menu.gif" alt="Menu" />
+                <button className="me-nav-btn" onClick={() => navigate(-1)}>
+                    <img src="/images/back.gif" alt="Back" />
+                </button>
+                <button className="me-nav-btn ford-btn" onClick={() => navigate(1)}>
+                    <img src="/images/ford.gif" alt="Forward" />
                 </button>
             </div>
         </div>
@@ -77,10 +88,10 @@ function Infrastructure() {
 
 function Career() {
     const careers = [
-        { title: "Biomedical Engineer", icon: "🧬" },
-        { title: "Clinical Engineer", icon: "🏥" },
-        { title: "Medical Device Designer", icon: "⚙️" },
-        { title: "Research Scientist", icon: "🔬" },
+        { title: "Biomedical Engineer", salary: "₹ 5 - 10 LPA", icon: "🧬" },
+        { title: "Clinical Engineer", salary: "₹ 4 - 8 LPA", icon: "🏥" },
+        { title: "Medical Device Designer", salary: "₹ 6 - 12 LPA", icon: "⚙️" },
+        { title: "Research Scientist", salary: "₹ 7 - 14 LPA", icon: "🔬" },
     ];
     return (
         <div className="glass-card career-section">
@@ -90,6 +101,7 @@ function Career() {
                     <div key={career.title} className="career-card" style={{ animationDelay: `${index * 0.12}s` }}>
                         <span className="career-icon">{career.icon}</span>
                         <p>{career.title}</p>
+                        <p className="career-salary">{career.salary}</p>
                     </div>
                 ))}
             </div>

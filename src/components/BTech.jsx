@@ -6,6 +6,14 @@ export default function BTech() {
 
   return (
     <div className="btech-page">
+      {/* 🎥 VIDEO BACKGROUND */}
+      <video className="btech-video-bg" autoPlay loop muted playsInline>
+        <source src="/media/btechback.mp4" type="video/mp4" />
+      </video>
+
+      {/* 🌑 DARK OVERLAY */}
+      <div className="video-overlay"></div>
+
       <h3 className="btech-title">B.Tech</h3>
 
       <div className="btech-buttons">

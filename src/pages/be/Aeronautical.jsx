@@ -38,8 +38,11 @@ export default function Aeronautical() {
 
             {/* 🔵 NAVIGATION BAR */}
             <div className="me-nav-controls">
-                <button className="me-nav-btn menu-nav-btn" onClick={() => navigate("/menu")}>
-                    <img src="/images/menu.gif" alt="Menu" />
+                <button className="me-nav-btn" onClick={() => navigate(-1)}>
+                    <img src="/images/back.gif" alt="Back" />
+                </button>
+                <button className="me-nav-btn ford-btn" onClick={() => navigate(1)}>
+                    <img src="/images/ford.gif" alt="Forward" />
                 </button>
             </div>
         </div>
@@ -113,10 +116,10 @@ function Infrastructure() {
 
 function Career() {
     const careers = [
-        { title: "UAV / Drone Engineer", icon: "🚀" },
-        { title: "Propulsion Specialist", icon: "✈️" },
-        { title: "Spacecraft Engineer", icon: "🛰️" },
-        { title: "Avionics Engineer", icon: "⚙️" },
+        { title: "UAV / Drone Engineer", salary: "₹ 6 - 12 LPA", icon: "🚀" },
+        { title: "Propulsion Specialist", salary: "₹ 7 - 14 LPA", icon: "✈️" },
+        { title: "Spacecraft Engineer", salary: "₹ 8 - 18 LPA", icon: "🛰️" },
+        { title: "Avionics Engineer", salary: "₹ 6 - 13 LPA", icon: "⚙️" },
     ];
 
     return (
@@ -132,6 +135,7 @@ function Career() {
                     >
                         <span className="career-icon">{career.icon}</span>
                         <p>{career.title}</p>
+                        <p className="career-salary">{career.salary}</p>
                     </div>
                 ))}
             </div>

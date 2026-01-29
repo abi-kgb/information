@@ -1,0 +1,124 @@
+/* ================= FULL PAGE BACKGROUND ================= */
+.dept-wrapper {
+  height: 100%;
+  width: 100%;
+  background-image: url("./br.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+/* ================= DIAMOND DESIGN (UNCHANGED) ================= */
+
+.diamond-container {
+  position: relative;
+  width: 420px;
+  height: 420px;
+  margin: 120px auto;
+}
+
+.diamond {
+  width: 140px;
+  height: 140px;
+  position: absolute;
+  transform: rotate(45deg);
+  border-radius: 16px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  cursor: pointer;
+  transition: all 0.45s ease;
+}
+
+.diamond span {
+  transform: rotate(-45deg);
+  color: white;
+  font-weight: 600;
+  text-align: center;
+}
+
+.diamond:hover {
+  transform: rotate(45deg) scale(1.08);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+}
+
+/* Positions */
+.physics {
+  background: #9fbfc7;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%) rotate(45deg);
+}
+
+.chemistry {
+  background: #6d7c84;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%) rotate(45deg);
+}
+
+.computer {
+  background: #e74c3c;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(45deg);
+  z-index: 2;
+}
+
+.ece {
+  background: #f1c40f;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%) rotate(45deg);
+}
+
+.mechanical {
+  background: #2aa9b9;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%) rotate(45deg);
+}
+
+.mca {
+  background: #8e44ad;
+  top: 0;
+  right: 0;
+  transform: translateY(20%) rotate(45deg);
+}
+
+/* ================= POPUP CONTENT ================= */
+
+.popup-content {
+  min-height: 100vh;
+  width: 100%;
+  padding: 40px 20px;
+  animation: popup 0.5s ease forwards;
+}
+
+/* Animation */
+@keyframes popup {
+  from {
+    opacity: 0;
+    transform: scale(0.85);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.container {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+
+  overflow: hidden;
+}

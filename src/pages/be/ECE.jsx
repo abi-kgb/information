@@ -9,6 +9,14 @@ export default function ECE() {
 
     return (
         <div className="dept-page bg-ece">
+            {/* 🎥 VIDEO BACKGROUND */}
+            <video autoPlay loop muted playsInline className="video-bg">
+                <source src="/media/commun.mp4" type="video/mp4" />
+            </video>
+
+            {/* 🌑 DARK OVERLAY */}
+            <div className="video-overlay"></div>
+
             <h1 className="dept-title">📡 Electronics & Communication</h1>
 
             <div className="dept-tabs">
@@ -32,8 +40,11 @@ export default function ECE() {
 
             {/* 🔵 NAVIGATION BAR */}
             <div className="me-nav-controls">
-                <button className="me-nav-btn menu-nav-btn" onClick={() => navigate("/menu")}>
-                    <img src="/images/menu.gif" alt="Menu" />
+                <button className="me-nav-btn" onClick={() => navigate(-1)}>
+                    <img src="/images/back.gif" alt="Back" />
+                </button>
+                <button className="me-nav-btn ford-btn" onClick={() => navigate(1)}>
+                    <img src="/images/ford.gif" alt="Forward" />
                 </button>
             </div>
         </div>
@@ -71,10 +82,10 @@ function Infrastructure() {
 
 function Career() {
     const careers = [
-        { title: "Electronics Engineer", icon: "🔧" },
-        { title: "Communication Engineer", icon: "📡" },
-        { title: "Embedded Systems Engineer", icon: "🧠" },
-        { title: "VLSI Design Engineer", icon: "💡" },
+        { title: "Electronics Engineer", salary: "₹ 5 - 12 LPA", icon: "🔧" },
+        { title: "Communication Engineer", salary: "₹ 5 - 10 LPA", icon: "📡" },
+        { title: "Embedded Systems Engineer", salary: "₹ 6 - 14 LPA", icon: "🧠" },
+        { title: "VLSI Design Engineer", salary: "₹ 7 - 18 LPA", icon: "💡" },
     ];
     return (
         <div className="glass-card career-section">
@@ -84,6 +95,7 @@ function Career() {
                     <div key={career.title} className="career-card" style={{ animationDelay: `${index * 0.12}s` }}>
                         <span className="career-icon">{career.icon}</span>
                         <p>{career.title}</p>
+                        <p className="career-salary">{career.salary}</p>
                     </div>
                 ))}
             </div>

@@ -19,39 +19,47 @@
 
 /* Background Variations */
 .bg-aero {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.65)), url("/images/be/aero-bg.jpg.jpeg") !important;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.4)), url("/images/aeroback.jpg") !important;
 }
 
 .bg-aiml {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.75)), url("/images/be/AIML-bg.jpg.jpeg") !important;
+    /* Background handled by video */
+    background: transparent !important;
 }
 
 .bg-bio {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.75)), url("/images/be/biomedical-bg.jpg.jpeg") !important;
+    /* Background handled by video */
+    background: transparent !important;
 }
 
 .bg-civil {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.75)), url("/images/be/Civil-bg.jpg.jpeg") !important;
+    /* Background handled by video */
+    background: transparent !important;
 }
 
 .bg-cse {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.75)), url("/images/be/CSE-bg.jpg.jpeg") !important;
+    /* Background handled by video */
+    background: transparent !important;
 }
 
 .bg-cyber {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.75)), url("/images/be/be-bg.jpg.jpeg") !important;
+    /* Background handled by video */
+    background: transparent !important;
 }
 
 .bg-ece {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.75)), url("/images/be/ECE-bg.jpg.jpeg") !important;
+    /* Background handled by video */
+    background: transparent !important;
 }
 
 .bg-eee {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.75)), url("/images/be/be-bg.jpg.jpeg") !important;
+    /* Background handled by video */
+    background: transparent !important;
 }
 
 .bg-mech {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.75)), url("/images/be/be-bg.jpg.jpeg") !important;
+    /* Background handled by video */
+    background: transparent !important;
 }
 
 .dept-title {
@@ -190,6 +198,13 @@
     margin-bottom: 5px;
 }
 
+.career-salary {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #2563eb;
+    margin-top: 4px;
+}
+
 /* Infrastructure grid special (for AIML) */
 .infra-grid-custom {
     display: grid;
@@ -227,4 +242,26 @@
     .career-grid {
         grid-template-columns: 1fr;
     }
+}
+
+/* ================= VIDEO BACKGROUND ================= */
+.video-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -2;
+}
+
+.video-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    /* Adjust darkness here */
+    z-index: -1;
 }

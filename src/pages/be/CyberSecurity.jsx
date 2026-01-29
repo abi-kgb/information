@@ -9,6 +9,14 @@ export default function CyberSecurity() {
 
     return (
         <div className="dept-page bg-cyber">
+            {/* 🎥 VIDEO BACKGROUND */}
+            <video autoPlay loop muted playsInline className="video-bg">
+                <source src="/media/cyber.mp4" type="video/mp4" />
+            </video>
+
+            {/* 🌑 DARK OVERLAY */}
+            <div className="video-overlay"></div>
+
             <h1 className="dept-title">🔐 CSE (Cyber Security)</h1>
 
             <div className="dept-tabs">
@@ -32,8 +40,11 @@ export default function CyberSecurity() {
 
             {/* 🔵 NAVIGATION BAR */}
             <div className="me-nav-controls">
-                <button className="me-nav-btn menu-nav-btn" onClick={() => navigate("/menu")}>
-                    <img src="/images/menu.gif" alt="Menu" />
+                <button className="me-nav-btn" onClick={() => navigate(-1)}>
+                    <img src="/images/back.gif" alt="Back" />
+                </button>
+                <button className="me-nav-btn ford-btn" onClick={() => navigate(1)}>
+                    <img src="/images/ford.gif" alt="Forward" />
                 </button>
             </div>
         </div>
@@ -72,10 +83,10 @@ function Infrastructure() {
 
 function Career() {
     const careers = [
-        { title: "Cyber Security Analyst", icon: "🛡️" },
-        { title: "Ethical Hacker", icon: "💻" },
-        { title: "Network Security Engineer", icon: "🌐" },
-        { title: "Digital Forensics Expert", icon: "🔍" },
+        { title: "Cyber Security Analyst", icon: "🛡️", salary: "₹5 - 10 LPA" },
+        { title: "Ethical Hacker", icon: "💻", salary: "₹6 - 15 LPA" },
+        { title: "Network Security Engineer", icon: "🌐", salary: "₹4 - 9 LPA" },
+        { title: "Digital Forensics Expert", icon: "🔍", salary: "₹5 - 12 LPA" },
     ];
     return (
         <div className="glass-card career-section">
@@ -85,6 +96,7 @@ function Career() {
                     <div key={career.title} className="career-card" style={{ animationDelay: `${index * 0.12}s` }}>
                         <span className="career-icon">{career.icon}</span>
                         <p>{career.title}</p>
+                        <p className="career-salary">{career.salary}</p>
                     </div>
                 ))}
             </div>

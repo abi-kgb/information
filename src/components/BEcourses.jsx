@@ -23,7 +23,11 @@ export default function BEcourses() {
     };
 
     return (
-        <div className="full-screen">
+        <div className="full-screen video-mode">
+            {/* 🎥 VIDEO BACKGROUND */}
+            <video className="be-video-bg" autoPlay loop muted playsInline>
+                <source src="/media/becourse.mp4" type="video/mp4" />
+            </video>
             <div className="be-wrapper">
                 <h1 className="be-heading animate-heading">BE Courses</h1>
 
@@ -43,7 +47,7 @@ export default function BEcourses() {
             </div>
 
             {/* 🔵 NAVIGATION BAR */}
-            <div className="me-nav-controls">
+            <div className="me-nav-controls be-nav-controls">
                 <button className="me-nav-btn menu-nav-btn" onClick={() => navigate("/menu")}>
                     <img src="/images/menu.gif" alt="Menu" />
                 </button>

@@ -138,36 +138,30 @@
 
 /* ================= BE COURSES BACKGROUND ================= */
 
-.full-screen {
-    min-height: 100vh;
-    width: 100%;
-    overflow-x: hidden;
 
-    /* Background image with overlay */
-    background-image:
-        linear-gradient(rgba(0, 0, 0, 0.65),
-            rgba(0, 0, 0, 0.75)),
-        url("/images/be/be-bg.jpg.jpeg");
-
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: "Segoe UI", system-ui;
+/* 🎥 VIDEO BACKGROUND */
+.full-screen.video-mode {
+    background: transparent;
+    /* Allows video to show through */
+    overflow: hidden;
+    /* Ensures no scrollbars from video */
+    padding-bottom: 0;
+    /* No space for nav button in video mode */
 }
 
-.be-wrapper {
+.be-video-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
-    max-width: 1200px;
-    padding: 32px 20px;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
 }
 
 .be-card {
-    background: rgba(255, 255, 255, 0.15);
+    background: rgba(255, 255, 255, 0.85);
+    /* Restored white background */
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
     border-radius: 18px;
@@ -175,16 +169,19 @@
     cursor: pointer;
     box-shadow: 0 25px 45px rgba(0, 0, 0, 0.35);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    color: #f9fafb;
+    color: #1f2937;
+    /* Dark text for white card */
 }
 
 .be-heading {
-    color: #e0f2ff;
+    color: #fff;
+    /* Keep heading white for contrast on video */
     text-shadow: 0 0 25px rgba(59, 130, 246, 0.9);
 }
 
 .be-card h3 {
-    color: #f1f5f9;
+    color: #111827;
+    /* Dark Title */
 }
 
 .be-icon {
